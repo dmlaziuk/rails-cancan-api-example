@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -27,16 +29,15 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -51,7 +52,7 @@ Rails.application.configure do
       origins '*'
       # Reminder: On the following line, the 'methods' refer to the 'Access-
       # Control-Request-Method', not the normal Request Method.
-      resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch]
+      resource '*', headers: :any, methods: %i[get post options delete put patch]
     end
   end
 end

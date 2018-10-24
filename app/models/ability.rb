@@ -13,8 +13,8 @@ class Ability
 
   def member_abilities(user)
     can :read, :all
-    can :manage, Article, { author_id: user.id }
-    can [:read, :update], User, { id: user.id }
+    can :manage, Article, author_id: user.id
+    can %i[read update], User, id: user.id
   end
 
   def visitor_abilities(user)
@@ -23,7 +23,7 @@ class Ability
 
   def to_list
     rules.map do |rule|
-      object = { actions: rule.actions, subject: rule.subjects.map{ |s| s.is_a?(Symbol) ? s : s.name } }
+      object = { actions: rule.actions, subject: rule.subjects.map { |s| s.is_a?(Symbol) ? s : s.name } }
       object[:conditions] = rule.conditions unless rule.conditions.blank?
       object[:inverted] = true unless rule.base_behavior
       object

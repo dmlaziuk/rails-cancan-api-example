@@ -3519,3 +3519,276 @@ Processing by Api::ArticlesController#index as JSON
 Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms)
 
 
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 21:04:25 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 21:04:25 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 25ms (Views: 13.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:08:46 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.7ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/ability.rb:10:in `admin_abilities'
+app/models/ability.rb:7:in `initialize'
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:09:33 +0300
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.9ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/ability.rb:10:in `admin_abilities'
+app/models/ability.rb:7:in `initialize'
+app/controllers/api/session_controller.rb:10:in `new'
+app/controllers/api/session_controller.rb:10:in `create'
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:09:38 +0300
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/ability.rb:10:in `admin_abilities'
+app/models/ability.rb:7:in `initialize'
+app/controllers/api/session_controller.rb:10:in `new'
+app/controllers/api/session_controller.rb:10:in `create'
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:09:43 +0300
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/ability.rb:10:in `admin_abilities'
+app/models/ability.rb:7:in `initialize'
+app/controllers/api/session_controller.rb:10:in `new'
+app/controllers/api/session_controller.rb:10:in `create'
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:10:39 +0300
+Processing by Api::SessionController#create as JSON
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:10:49 +0300
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 0.9ms | ActiveRecord: 1.4ms)
+
+
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@freaksidea.com"], ["LIMIT", 1]]
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:10:49 +0300
+Processing by Api::ArticlesController#index as JSON
+Completed 200 OK in 74ms (Views: 0.7ms | ActiveRecord: 2.9ms)
+
+
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 37ms (Views: 29.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:11:08 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 44ms (Views: 10.7ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/api/articles/1" for 127.0.0.1 at 2018-10-24 23:11:18 +0300
+Processing by Api::ArticlesController#destroy as JSON
+  Parameters: {"id"=>"1", "article"=>{}}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/api/articles/2" for 127.0.0.1 at 2018-10-24 23:11:22 +0300
+Processing by Api::ArticlesController#destroy as JSON
+  Parameters: {"id"=>"2", "article"=>{}}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 11ms (Views: 2.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/articles/7" for 127.0.0.1 at 2018-10-24 23:11:26 +0300
+Processing by Api::ArticlesController#show as JSON
+  Parameters: {"id"=>"7", "article"=>{}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:11:31 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 9ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/articles" for 127.0.0.1 at 2018-10-24 23:12:05 +0300
+Processing by Api::ArticlesController#create as JSON
+  Parameters: {"title"=>"ttt", "body"=>"ertt", "article"=>{"title"=>"ttt", "body"=>"ertt"}}
+Unpermitted parameter: :article
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ttt"], ["body", "ertt"], ["created_at", "2018-10-24 20:12:05.666923"], ["updated_at", "2018-10-24 20:12:05.666923"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 13ms (Views: 0.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:12:05 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 13ms (Views: 7.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:12 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY id DESC[0m
+Completed 200 OK in 65ms (Views: 23.3ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2018-10-24 23:13:26 +0300
+Processing by Api::SessionController#create as JSON
+  Parameters: {"email"=>"member@freaksidea.com", "password"=>"[FILTERED]", "session"=>{"email"=>"member@freaksidea.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "member@freaksidea.com"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:26 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 15ms (Views: 4.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/articles/8" for 127.0.0.1 at 2018-10-24 23:13:35 +0300
+Processing by Api::ArticlesController#show as JSON
+  Parameters: {"id"=>"8", "article"=>{}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:37 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/articles/3" for 127.0.0.1 at 2018-10-24 23:13:39 +0300
+Processing by Api::ArticlesController#show as JSON
+  Parameters: {"id"=>"3", "article"=>{}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:41 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 13ms (Views: 5.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:50 +0300
+Processing by Api::ArticlesController#create as JSON
+  Parameters: {"title"=>"new", "body"=>"123", "article"=>{"title"=>"new", "body"=>"123"}}
+Unpermitted parameter: :article
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :article
+Unpermitted parameter: :article
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "new"], ["body", "123"], ["author_id", 2], ["created_at", "2018-10-24 20:13:50.489582"], ["updated_at", "2018-10-24 20:13:50.489582"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 12ms (Views: 0.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:50 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 14ms (Views: 7.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/articles/9" for 127.0.0.1 at 2018-10-24 23:13:57 +0300
+Processing by Api::ArticlesController#show as JSON
+  Parameters: {"id"=>"9", "article"=>{}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:13:59 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 13ms (Views: 5.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/articles/8" for 127.0.0.1 at 2018-10-24 23:14:00 +0300
+Processing by Api::ArticlesController#show as JSON
+  Parameters: {"id"=>"8", "article"=>{}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/articles" for 127.0.0.1 at 2018-10-24 23:14:02 +0300
+Processing by Api::ArticlesController#index as JSON
+  Parameters: {"article"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ('t'='t') ORDER BY id DESC[0m
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 0.7ms)
+
+
