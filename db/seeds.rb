@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-admin = User.create(email: 'admin@freaksidea.com', role: 'admin', password: '123456')
-blogger = User.create(email: 'member@freaksidea.com', role: 'member', password: '123456')
+admin = User.create(email: 'admin@freaksidea.com', password: '123456', permissions: %w[view add modify delete])
+blogger = User.create(email: 'member@freaksidea.com', password: '123456', permissions: %w[view add])
 
 2.times do
   Article.create(
