@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module Api
   class UsersController < ApplicationController
-    load_and_authorize_resource class: "User"
+    load_and_authorize_resource class: 'User'
 
     def index
-      users = @users.order('id DESC');
+      users = @users.order('id DESC')
       render json: { items: users }
     end
 
@@ -32,7 +34,7 @@ module Api
       end
     end
 
-  private
+    private
 
     def user_params
       params.permit(:email, :password)

@@ -3,8 +3,12 @@ require 'cancancan'
 class Ability
   include CanCan::Ability
 
+  PERMISSIONS = %w[view add modify delete].freeze
+
   def initialize(user)
-    user.permissions.map { |permission| send("#{permission}_permission", user) }
+    PERMISSIONS.each do |permission|
+      send("#{permission}_permission", user) if user.permit?(permission)
+    end
   end
 
   def view_permission(user)
@@ -16,30 +20,16 @@ class Ability
   end
 
   def modify_permission(user)
-    can :update, :all
+    can :update, Article, author_id: user.id
   end
 
   def delete_permission(user)
-    can :destroy, :all
+    can :destroy, Article, author_id: user.id
   end
 
   def manage_permission(user)
     can :manage, :all
   end
-
-  # def admin_abilities(user)
-  #   can :manage, :all
-  # end
-
-  # def member_abilities(user)
-  #   can :read, :all
-  #   can :manage, Article, author_id: user.id
-  #   can %i[read update], User, id: user.id
-  # end
-
-  # def visitor_abilities(user)
-  #   can :read, :all
-  # end
 
   def to_list
     rules.map do |rule|

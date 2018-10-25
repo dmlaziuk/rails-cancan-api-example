@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   class ArticlesController < ApplicationController
-    load_and_authorize_resource class: "Article"
+    load_and_authorize_resource class: 'Article'
 
     def index
       articles = @articles.order('id DESC')
@@ -28,11 +30,11 @@ module Api
       if @article.update_attributes(article_params)
         render json: { item: @article }
       else
-        render json: { errors: @article.errors },status: :unprocessable_entity
+        render json: { errors: @article.errors }, status: :unprocessable_entity
       end
     end
 
-  private
+    private
 
     def article_params
       params.permit(:title, :body)

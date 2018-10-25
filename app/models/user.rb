@@ -9,8 +9,8 @@ class User < ApplicationRecord
     Digest::SHA1.hexdigest(password)
   end
 
-  def permit?(permition)
-    permit == permissions.to_s
+  def permit?(permission)
+    permissions.include?(permission)
   end
 
   def password=(password)

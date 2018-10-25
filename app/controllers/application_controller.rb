@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   include CanCan::ControllerAdditions
 
@@ -6,17 +8,15 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    if token
-      @current_user ||= User.find(token["user_id"])
-    else
-      @current_user ||= User.new(role: "visitor")
-    end
+    return @current_user ||= User.find(token['user_id']) if token
+    @current_user ||= User.new(permissions: %w[view])
   end
 
-private
+  private
+
   def token
-    value = request.headers["Authorization"]
+    value = request.headers['Authorization']
     return if value.blank?
-    @token ||= JWT.decode(value, Rails.application.secrets.jwt_secret, true, { algorithm: 'HS256' }).first
+    @token ||= JWT.decode(value, Rails.application.secrets.jwt_secret, true, algorithm: 'HS256').first
   end
 end
