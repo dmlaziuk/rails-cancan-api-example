@@ -14,7 +14,7 @@ member = User.create(
 
 2.times do
   Article.create(
-    author_id: admin.id,
+    user_id: admin.id,
     title: Faker::Book.title,
     body: Faker::Lorem.sentence
   )
@@ -22,7 +22,7 @@ end
 
 5.times do
   Article.create(
-    author_id: member.id,
+    user_id: member.id,
     title: Faker::Book.title,
     body: Faker::Lorem.sentence
   )

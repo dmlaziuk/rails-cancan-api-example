@@ -2,11 +2,10 @@
 
 module Api
   class UsersController < ApplicationController
-    load_and_authorize_resource class: 'User'
+    load_and_authorize_resource
 
     def index
-      users = @users.order('id DESC')
-      render json: { items: users }
+      render json: { items: @users }
     end
 
     def show
@@ -37,7 +36,7 @@ module Api
     private
 
     def user_params
-      params.permit(:email, :password)
+      params.require(:user).permit(:email, :password)
     end
   end
 end

@@ -1,33 +1,46 @@
+# frozen_string_literal: true
+
 require 'cancancan'
 
 class Ability
   include CanCan::Ability
-
-  PERMISSIONS = %w[view add modify delete].freeze
+  VIEW_PERMISSION = :view
+  ADD_PERMISSION = :add
+  MODIFY_PERMISSION = :modify
+  DELETE_PERMISSION = :delete
+  MANAGE_PERMISSION = :manage
+  PERMISSIONS = [
+    VIEW_PERMISSION,
+    ADD_PERMISSION,
+    MODIFY_PERMISSION,
+    DELETE_PERMISSION,
+    MANAGE_PERMISSION
+  ].freeze
 
   def initialize(user)
     PERMISSIONS.each do |permission|
       send("#{permission}_permission", user) if user.permit?(permission)
     end
+    merge(ArticleAbility.new(user))
   end
 
-  def view_permission(user)
+  def view_permission(_)
     can :read, :all
   end
 
-  def add_permission(user)
+  def add_permission(_)
     can :create, :all
   end
 
-  def modify_permission(user)
-    can :update, Article, author_id: user.id
+  def modify_permission(_)
+    # can :update, :all
   end
 
-  def delete_permission(user)
-    can :destroy, Article, author_id: user.id
+  def delete_permission(_)
+    # can :destroy, :all
   end
 
-  def manage_permission(user)
+  def manage_permission(_)
     can :manage, :all
   end
 

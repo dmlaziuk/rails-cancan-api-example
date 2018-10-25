@@ -3,19 +3,34 @@
 module Api
   class SessionController < ApplicationController
     def create
-      email, password = session_params.values_at(:email, :password)
-      user = User.find_by_email(email)
-
-      return render json: { message: 'Invalid email or password' }, status: 400 if user.blank? || user.password != User.hash_password(password)
-
-      token = JWT.encode({ user_id: user.id }, Rails.application.secrets.jwt_secret, 'HS256')
+      return render_unauthorized if user.blank? || user.password != User.hash_password(password)
       render json: { token: token, rules: Ability.new(user).to_list }
     end
 
     private
 
+    def render_unauthorized
+      render json: { message: 'Invalid email or password' }, status: 400
+    end
+
     def session_params
-      params.permit(:email, :password)
+      params.require(:session).permit(:email, :password)
+    end
+
+    def email
+      session_params[:email]
+    end
+
+    def password
+      session_params[:password]
+    end
+
+    def user
+      @user ||= User.find_by(email: email)
+    end
+
+    def token
+      @token ||= JWT.encode({ user_id: user.id }, Rails.application.secrets.jwt_secret, 'HS256')
     end
   end
 end

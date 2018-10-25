@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
 
   def permit?(permission)
-    permissions.include?(permission)
+    permissions.include?(permission.to_s)
   end
 
   def password=(password)
